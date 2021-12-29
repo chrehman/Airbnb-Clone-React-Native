@@ -1,12 +1,14 @@
+import { useNavigation } from '@react-navigation/core'
 import React from 'react'
 import { Dimensions, ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native'
 import Fontisto from 'react-native-vector-icons/Fontisto'
 const Home = () => {
+    const navigation=useNavigation();
     return (
         <View>
               <Pressable
                 onPress={()=>{
-
+                    navigation.navigate('Search')
                 }}
                 style={{
                     borderRadius:30,

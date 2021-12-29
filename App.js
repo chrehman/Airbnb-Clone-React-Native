@@ -23,19 +23,15 @@ import feed from './src/assets/data/feed';
 import SearchResults from './src/screens/SearchResults';
 import DestinationSearch from './src/screens/DestinationSearch';
 import Guest from './src/screens/Guest';
+import Router from './src/navigation/Router';
+
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
     <>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <SafeAreaView>
-        {/* <Home /> */}
-        {/* <SearchResults/> */}
-        {/* <DestinationSearch /> */}
-        <Guest/>
-
-      </SafeAreaView>
+      <Router/>
     </>
   );
 };
