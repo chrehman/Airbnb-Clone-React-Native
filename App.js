@@ -22,6 +22,7 @@ import Home from './src/screens/Home';
 import feed from './src/assets/data/feed';
 import SearchResults from './src/screens/SearchResults';
 import DestinationSearch from './src/screens/DestinationSearch';
+import Guest from './src/screens/Guest';
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -31,7 +32,8 @@ const App = () => {
       <SafeAreaView>
         {/* <Home /> */}
         {/* <SearchResults/> */}
-        <DestinationSearch />
+        {/* <DestinationSearch /> */}
+        <Guest/>
 
       </SafeAreaView>
     </>
