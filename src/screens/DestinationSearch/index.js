@@ -4,33 +4,37 @@ import styles from './styles'
 import search from '../../../Airbnb Assets/search'
 import Entypo from 'react-native-vector-icons/Entypo'
 import { useNavigation } from '@react-navigation/core'
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import SugesstionRow from './SugesstionRow'
+
 
 const DestinationSearch = () => {
     const [text, setText] = useState('')
-    const navigation=useNavigation();
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
-            <TextInput
-                style={styles.textInput}
-                value={text}
-                onChangeText={setText}
-                placeholder="Where are you going?"
+            
+            <GooglePlacesAutocomplete
+                placeholder='Where are you going?'
+                onPress={(data, details = null) => {
+                    // 'details' is provided when fetchDetails = true
+                    console.log(data, details);
+                    navigation.navigate("Guest")
+                }}
+                fetchDetails
+                query={{
+                    key: 'AIzaSyBiNdry8vQedDUEQTV-kCrls9N_XHZR8wQ',
+                    language: 'en',
+                    type:'(cities)'
+                }}
+                suppressDefaultStyles
+                styles={{textInput:styles.textInput}}
+                renderRow={(item)=> <SugesstionRow item={item}/>}
+                
             />
-            <FlatList
-                data={search}
-                renderItem={({ item }) => (
-                    <Pressable onPress={()=> navigation.navigate("Guest")}>
-                        <View style={styles.row}>
-                            <View style={styles.iconContainer}>
-                                <Entypo name="location-pin" size={30} color="black" />
-
-                            </View>
-                            <Text style={styles.locationText}>{item.description}</Text>
-                        </View>
-                    </Pressable>
-                )}
-                keyExtractor={item => item.id}
-            />
+           
+           
+            
         </View>
     )
 }

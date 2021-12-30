@@ -1,7 +1,9 @@
 import { StyleSheet } from "react-native"
 export default styles = StyleSheet.create({
     container: {
-        margin: 20,
+        padding: 20,
+        backgroundColor:"#fff",
+        flex:1
     },
     textInput: {
         fontSize:20,

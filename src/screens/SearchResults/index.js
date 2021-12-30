@@ -6,6 +6,7 @@ import feed from '../../assets/data/feed'
 const SearchResults = () => {
     return (
         <View>
+            
             <FlatList
                 data={feed}
                 renderItem={({ item }) => <Post post={item} />}

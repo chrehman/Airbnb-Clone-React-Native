@@ -1,11 +1,13 @@
+import { useNavigation } from '@react-navigation/core'
 import React, { useState } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Pressable, Dimensions } from 'react-native'
 import styles from './styles'
 
 const Guest = () => {
     const [adult, setAdult] = useState(0)
     const [children, setChildren] = useState(0)
     const [infents, setInfents] = useState(0)
+    const navigation= useNavigation();
     return (
         <View style={styles.container}>
             <View style={styles.row}>
@@ -57,6 +59,7 @@ const Guest = () => {
 
             </View>
             <View style={styles.row}>
+
                 <View>
                     <Text style={styles.title}>Infants</Text>
                     <Text style={styles.description}>Under 2</Text>
@@ -80,6 +83,28 @@ const Guest = () => {
                 </View>
 
             </View>
+            <Pressable
+            onPress={()=>{
+                navigation.navigate("Home",{
+                    screen:"Explore",
+                    params:{
+                        screen:"SearchResults"
+                    }
+                })
+            }}
+            style={{
+                marginBottom:20,
+                backgroundColor:'#f15454',
+                alignItems:'center',
+                justifyContent:'center',
+                height:50,
+                marginHorizontal:20,
+                borderRadius:10,
+                marginTop:Dimensions.get('window').height *0.5
+            }}
+            >
+                <Text style={{fontSize:20,color:'#fff',fontWeight:'bold'}}>Search</Text>
+            </Pressable>
         </View>
     )
 }
