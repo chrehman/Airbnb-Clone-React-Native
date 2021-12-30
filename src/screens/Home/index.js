@@ -39,7 +39,7 @@ const Home = () => {
             source={require('../../assets/images/wallpaper.jpg')}
             style={{
                 width: '100%',
-                height:500,
+                height:'100%',
                 resizeMode: 'cover',
                 justifyContent:'center'
             }}

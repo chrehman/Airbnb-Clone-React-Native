@@ -4,6 +4,7 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import DestinationSearch from '../screens/DestinationSearch';
 import Guest from '../screens/Guest';
+import PostScreen from '../screens/PostScreen';
 import HomeTabNavigator from './HomeTabNavigator';
 
 const Router = () => {
@@ -31,6 +32,12 @@ const Router = () => {
                         headerTitleAlign: 'center',
                     }}
                     name="Guest" component={Guest} />
+                    <Stack.Screen
+                    options={{
+                        title: 'Accumodation',
+                        headerTitleAlign: 'center',
+                    }}
+                    name="Post" component={PostScreen} />
 
             </Stack.Navigator>
         </NavigationContainer>

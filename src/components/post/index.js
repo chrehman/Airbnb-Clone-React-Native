@@ -1,11 +1,17 @@
+import { useNavigation } from '@react-navigation/core'
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View ,Pressable} from 'react-native'
 import styles from './styles'
 const Post = ({post}) => {
     // console.log(post)
     const {bed,bedroom,image,type,title,oldPrice,newPrice,totalPrice}=post
+    const navigation =useNavigation();
     return (
-        <View style={styles.container}>
+        <Pressable style={styles.container}
+            onPress={()=>{
+                navigation.navigate('Post',{post})
+            }}
+        >
 
             <Image source={{uri:image}}
                 style={styles.image}
@@ -20,7 +26,7 @@ const Post = ({post}) => {
             <Text style={styles.totalPrice}>
                 ${totalPrice} total
             </Text>
-        </View>
+        </Pressable>
     )
 }
 

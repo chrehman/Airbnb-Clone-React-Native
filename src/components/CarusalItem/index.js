@@ -1,12 +1,18 @@
+import { useNavigation } from '@react-navigation/core'
 import React from 'react'
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import styles from './styles'
 const CarusalItem = ({ post }) => {
     // console.log(post)
     const { bed, bedroom, image, type, title, oldPrice, newPrice, totalPrice } = post
     const width=Dimensions.get('window').width;
+    const navigation = useNavigation();
     return (
-        <View style={{...styles.container,width:width-60 }}>
+        <Pressable style={{...styles.container,width:width-60 }}
+        onPress={()=>{
+            navigation.navigate('Post',{post})
+        }}
+        >
 
             <Image source={{ uri: image }}
                 style={styles.image}
@@ -21,7 +27,7 @@ const CarusalItem = ({ post }) => {
                 </Text>
                 
             </View>
-        </View>
+        </Pressable>
     )
 }
 
